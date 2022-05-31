@@ -1,24 +1,71 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(a,b) {
+return a>b?a:b;
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(arg) {
+
+if(arg.length==0){return null};
+
+let longest= arg[0];
+
+arg.forEach((element)=>{
+  if (element.length>longest.length){longest=element;}
+})
+return longest;
+
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arrNum) {
+
+return arrNum.reduce(function(total, currentValue){return total+=currentValue;}, 0) 
+
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arrOb) {
+ if (arrOb.length==0){return 0}
+  
+ return arrOb.reduce(function(total, currentValue){
+  let valLength=0;
+   let type=typeof currentValue;
+    switch (type) {
+      case "string":
+        return total+=currentValue.length;
+        break;
+      case "number":
+        return total+=currentValue;
+        break;
+      case "boolean":
+         if(currentValue==true){total=total+1};
+        return total;    
+        default:
+
+         
+            throw new Error(
+              "Unsupported data type sir or ma'am");
+         
+
+
+    }
+        
+   }, 0) 
+
+
+
+}
 
 
 
@@ -26,16 +73,79 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(myAr) {
+
+let arrLen=myAr.length;
+if(arrLen==0){return null};
+let avv=myAr.reduce(function(total, currentValue){return total+=currentValue;}, 0) 
+avv=avv/arrLen;
+return avv;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arrStr) {
+  let arrLen=arrStr.length;
+  if(arrLen==0){return null};
+  let avv=arrStr.reduce(function(total, currentValue){return total+=currentValue.length;}, 0) 
+  avv=avv/arrLen;
+  return avv;
+  }
+
+
+
+ 
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arrMix) {
+  let arrLen=arrMix.length;
+  if (arrLen==0){return null}
+  
+  let avvg= arrMix.reduce(function(total, currentValue){
+   let valLength=0;
+    let type=typeof currentValue;
+     switch (type) {
+       case "string":
+         return total+=currentValue.length;
+         break;
+       case "number":
+         return total+=currentValue;
+         break;
+       case "boolean":
+          if(currentValue==true){total=total+1};
+         return total;    
+         default:
+ 
+          
+             throw new Error(
+               "Unsupported data type sir or ma'am");
+          
+ 
+ 
+     }
+         
+    }, 0) 
+
+    
+
+
+    avvg=avvg/arrLen;
+    avvg=parseFloat(avvg.toFixed(2));
+    return avvg;
+ 
+ 
+
+
+
+
+
+
+
+
+
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,7 +162,28 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(unArr) {
+  if(unArr.length==0){
+return null
+
+  }
+  let arr=[];
+  
+  unArr.forEach(function(currentValue, index, arr){
+    if (arr.indexOf(currentValue)==arr.lastIndexOf(currentValue)){
+
+   }else{ arr.push(currentValue)}
+
+
+
+
+
+  })
+  return arr;
+
+
+
+}
 
 
 
