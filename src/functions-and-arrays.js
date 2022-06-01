@@ -11,12 +11,11 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 function findLongestWord(arg) {
 
   if (arg.length == 0) { return null };
-
   let longest = arg[0];
-
   arg.forEach((element) => {
     if (element.length > longest.length) { longest = element; }
   })
+
   return longest;
 
 }
@@ -27,9 +26,7 @@ function findLongestWord(arg) {
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(arrNum) {
-
   return arrNum.reduce(function (total, currentValue) { return total += currentValue; }, 0)
-
 }
 
 
@@ -52,18 +49,11 @@ function sum(arrOb) {
         if (currentValue == true) { total = total + 1 };
         return total;
       default:
-
-
         throw new Error(
           "Unsupported data type sir or ma'am");
-
-
-
     }
 
   }, 0)
-
-
 
 }
 
@@ -117,33 +107,15 @@ function avg(arrMix) {
         if (currentValue == true) { total = total + 1 };
         return total;
       default:
-
-
         throw new Error(
           "Unsupported data type sir or ma'am");
-
-
-
     }
 
   }, 0)
 
-
-
-
   avvg = avvg / arrLen;
   avvg = parseFloat(avvg.toFixed(2));
   return avvg;
-
-
-
-
-
-
-
-
-
-
 
 }
 
@@ -166,7 +138,8 @@ function uniquifyArray(unArr) {
   let len = unArr.length;
   if (len == 0) { return null }
 
-  // Lets do it with cycles. Yes, I can use forEach but for the training purpose :)))
+  // Lets do it with cycles. Yes, certanly, I can use forEach but for the training purpose let it be cycles:)))
+
   for (let i = 0; i < len; i++) {
     if (unArr.indexOf(unArr[i]) !== unArr.lastIndexOf(unArr[i])) {
       let lastElem = unArr.lastIndexOf(unArr[i])
@@ -178,21 +151,14 @@ function uniquifyArray(unArr) {
 
 }
 
-
-
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist(arrWor,wor) { 
+function doesWordExist(arrWor, wor) {
   let len = arrWor.length;
   if (len == 0) { return null }
-  if (arrWor.indexOf(wor)<0){return false}else if (arrWor.indexOf(wor) == arrWor.lastIndexOf(wor)){return true};
+  if (arrWor.indexOf(wor) < 0) { return false } else if (arrWor.indexOf(wor) == arrWor.lastIndexOf(wor)) { return true };
   return false;
-
-
-
-
-
 
 }
 
@@ -216,15 +182,15 @@ const wordsCount = [
 function howManyTimes(arrT, world) {
   let len = arrT.length;
   if (len == 0) { return 0 }
-let result=0;
-arrT.forEach((element)=>{if(element=== world){
-result++;
+  let result = 0;
+  arrT.forEach((element) => {
+    if (element === world) {
+      result++;
+    }
+  })
 
-
-} })
-return result;
-
- }
+  return result;
+}
 
 
 
@@ -251,33 +217,22 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+/// We have an estimate that the array dimension is not less then 4X4, It does not accept  smaller arrays!!!!!;
+function greatestProduct(matrixM) {
+  let arr = [];
 
-function greatestProduct(matrixM) { 
-let arr=[];
+  for (j = 0; j < matrixM.length - 4; j++) {
 
-for (j=0;j<matrixM[0].length;j++){
-
-    matrixM[0].forEach((el,index)=>{
-      let result=el;
-  
-   
-   for(let i=1;i<matrixM.length;i++ ){
-   result+=matrixM[i][index];
-
-     }
-arr.push(result)
-  
-})
+    for (let i = 0; i < matrixM[j].length - 4; i++) {
+      let result1 = matrixM[j][i] * matrixM[j][i + 1] * matrixM[j][i + 2] * matrixM[j][i + 3];
+      let result2 = matrixM[j][i] * matrixM[j + 1][i] * matrixM[j + 2][i] * matrixM[j + 3][i];
+      arr.push(result1, result2);
+    }
   }
-arr=arr.sort();
-return arr[arr.length-1]
 
-
+  arr = arr.sort();
+  return arr[arr.length - 1];
 }
-
-
-
-
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
 if (typeof module !== 'undefined') {
